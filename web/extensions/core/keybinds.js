@@ -68,15 +68,40 @@ app.registerExtension({
         button.click();
       }
 
-      const align_keys = ["w", "a", "s", "d"];
-      if (align_keys.includes(event.key)) {
+      const alignKeys = ["w", "a", "s", "d"];
+      if (alignKeys.includes(event.key)) {
         allignByShortcut(event.key);
+      }
+
+      const pinKey = "e";
+      if (event.key == pinKey) {
+        pinNodes();
       }
     };
 
     window.addEventListener("keydown", keybindListener, true);
   },
 });
+
+function pinNodes() {
+  var data = Object.entries(LGraphCanvas.active_canvas.selected_nodes)
+    .map((entry) => entry[1])
+    .filter((entry) => !entry.flags.pinned);
+
+  var originalLength = Object.entries(
+    LGraphCanvas.active_canvas.selected_nodes
+  ).length;
+
+  if (data.length == 0 || data.length == originalLength) {
+    for (var entry_id in LGraphCanvas.active_canvas.selected_nodes) {
+      LGraphCanvas.active_canvas.selected_nodes[entry_id].pin();
+    }
+  } else {
+    for (var entry in data) {
+      data[entry].pin();
+    }
+  }
+}
 
 function allignByShortcut(buttonKey) {
   if (Object.entries(LGraphCanvas.active_canvas.selected_nodes).length < 2) {

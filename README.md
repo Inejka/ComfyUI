@@ -2,6 +2,12 @@
 
 I just want to add a few shortcuts and change ui to better suit my needs.
 
+## What have I done
+
+ - Added align shortcut to keys "w", "a", "s", "d": select nodes, press align key and nodes will be aligned to top, left, bottom or right correspondingly.
+ - Added pin shortcut to key "e": select nodes and press e - if nodes have mixtured pins, all will be pinned, otherwise pin will be inverted.
+ - Now all nodes are aligned to grid when dragged, to disable aligned drag with "shift" key pressed.
+
 ComfyUI
 =======
 The most powerful and modular stable diffusion GUI and backend.
