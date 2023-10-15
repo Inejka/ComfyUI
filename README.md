@@ -1,3 +1,7 @@
+# This fork main goal
+
+I just want to add a few shortcuts and change ui to better suit my needs.
+
 ComfyUI
 =======
 The most powerful and modular stable diffusion GUI and backend.
